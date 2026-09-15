@@ -1,8 +1,10 @@
-cmake_minimum_required( VERSION 3.10 )
-find_package( brainvisa-cmake REQUIRED )
-BRAINVISA_PROJECT()
+if(NOT NO_BV_MAKER)
+  cmake_minimum_required( VERSION 3.10 )
+  find_package( brainvisa-cmake REQUIRED )
+  BRAINVISA_PROJECT()
 
-find_package( PythonInterp 2 REQUIRED )
+  find_package( PythonInterp 2 REQUIRED )
+endif()
 
 configure_file( "${CMAKE_CURRENT_SOURCE_DIR}/config/config.py.in" "${CMAKE_BINARY_DIR}/${PYTHON_INSTALL_DIRECTORY}/brainvisa_share/config.py" @ONLY )
 BRAINVISA_INSTALL( FILES "${CMAKE_BINARY_DIR}/${PYTHON_INSTALL_DIRECTORY}/brainvisa_share/config.py" 
@@ -40,4 +42,6 @@ add_custom_target( ${target} ALL
                   DEPENDS ${destinationFiles} )
 
 
-BRAINVISA_CREATE_CMAKE_CONFIG_FILES()
+if(NOT NO_BV_MAKER)
+  BRAINVISA_CREATE_CMAKE_CONFIG_FILES()
+endif()
