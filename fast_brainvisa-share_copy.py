@@ -1,12 +1,7 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
 
-from __future__ import absolute_import, print_function
-
-import sys, os, platform
-
-from six.moves import zip
-
+import sys
+import os
 
 relativeFiles= []
 sourceFiles= []
