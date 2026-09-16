@@ -1,4 +1,4 @@
-if(NOT NO_BV_MAKER)
+if( BRAINVISA_BVMAKER )
   cmake_minimum_required( VERSION 3.10 )
   find_package( brainvisa-cmake REQUIRED )
   BRAINVISA_PROJECT()
@@ -42,6 +42,6 @@ add_custom_target( ${target} ALL
                   DEPENDS ${destinationFiles} )
 
 
-if(NOT NO_BV_MAKER)
+if( BRAINVISA_BVMAKER )
   BRAINVISA_CREATE_CMAKE_CONFIG_FILES()
 endif()
